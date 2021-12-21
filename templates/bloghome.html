@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block blogactive %}active{% endblock blogactive %}
+{% block body %}
+{% block css %}
+<style>
+.container{
+  min-height: 120vh;
+}
+</style>
+{% endblock css %}
+
+<div class="container">
+  <h2 class="my-3">Welcome to MyBlog</h2>
+  {% for blog in blogs %}
+
+
+  <div class="my-4">
+
+    <h3 class="my-2"><a href="/blogpost/{{blog.slug}}" class="text-dark">{{blog.title}}</a></h3>
+    <div class="my-2">
+      {{blog.short_desc|slice:245}}...
+    </div>
+
+    <a href="/blogpost/{{blog.slug}}" class="text-dark"><button type="button" class="btn btn-outline-primary">Read
+        More...</button>
+    </a>
+  </div>
+
+
+  {% endfor %}
+  <div class="my-1">
+    {% if prev %}
+    <button class="btn btn-primary"><a class="text-light" href="/blog?page={{prev}}">&laquo; Previous</a></button>
+
+    {% endif %}
+
+    {% if nxt %}
+    <button class="btn btn-primary float-right"><a class="text-light" href="/blog?page={{nxt}}">Next &raquo;</a></button>
+    {% endif %}
+
+  </div>
+
+</div>
+{% endblock body %}
