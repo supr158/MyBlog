@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block blogactive %}active{% endblock blogactive %}
-{% block body %}
 {% block css %}
 <style>
 .container{
@@ -8,6 +7,10 @@
 }
 </style>
 {% endblock css %}
+
+{% block title %}BlogHome{% endblock title %}
+{% block body %}
+
 
 <div class="container">
   <h2 class="my-3">Welcome to MyBlog</h2>
